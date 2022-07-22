@@ -22,7 +22,6 @@ function Button({
     onClick,
     ...passProps
 }) {
-    // console.log("Child",children);
     let Comp = 'button';
 
     const props = {
