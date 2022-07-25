@@ -24,6 +24,29 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                    children: {
+                        title: 'Tiếng 3 Miền',
+                        data: [
+                            { type: 'tiengViet', code: 'bac', title: 'Miền Bắc' },
+                            { type: 'tiengViet', code: 'trung', title: 'Miền Trung' },
+                            { type: 'tiengViet', code: 'nam', title: 'Miền Nam' },
+                        ],
+                    },
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -45,6 +68,16 @@ function Header(props) {
         }, 0);
     }, []);
 
+    //Handle logic
+    const handlerMenuChange = (menuItem) => {
+        // console.log('menuItem', menuItem);
+        switch (menuItem.type) {
+            case 'language':
+                //Handle changle luaguage
+                break;
+                default:
+        }
+    };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -81,8 +114,8 @@ function Header(props) {
                     {/* <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}>
                         Log out
                     </Button> */}
-                    <Menu items={MENU_ITEMS}>
-                    <button className={cx('more-btn')}> {<FontAwesomeIcon icon={faEllipsisV} />}</button>
+                    <Menu items={MENU_ITEMS} onChange={handlerMenuChange}>
+                        <button className={cx('more-btn')}> {<FontAwesomeIcon icon={faEllipsisV} />}</button>
                     </Menu>
                 </div>
             </div>
