@@ -20,6 +20,7 @@
         outline: none;
         caret-color: var(--primary);
         background-color: transparent;
+        font-family: var(--font-family);
     }
     input:not(:placeholder-shown) ~ .search-btn {
         color: rgba(22, 24, 35, 0.75);
@@ -46,7 +47,7 @@
     color: rgba(22, 24, 35, 0.34);
 }
 .loading {
-    animation: spinner .8s linear infinite;
+    animation: spinner 0.8s linear infinite;
 }
 
 @keyframes spinner {
