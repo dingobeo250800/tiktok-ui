@@ -8,6 +8,8 @@ import AccountItem from '~/components/AccountItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SearchIcon } from '~/Icons';
 import { useDebounce } from '~/components/hooks';
+import * as searchServices from '~/apiServices/searchServices';
+
 const cx = classNames.bind(styles);
 
 function Search(props) {
@@ -27,15 +29,16 @@ function Search(props) {
         }
         setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setLoading(false);
-            });
+        //XMLHttpRequest
+        const fetchAPI = async () => {
+            setLoading(true);
+
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+        fetchAPI();
     }, [debounced]);
 
     const handleClear = () => {
