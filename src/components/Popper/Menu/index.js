@@ -35,7 +35,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
     };
     return (
         <Tippy
-            visible
+            // visible
             interactive
             delay={[0, 700]}
             hideOnClick={hideOnClick}
