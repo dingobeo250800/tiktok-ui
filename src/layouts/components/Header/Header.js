@@ -135,7 +135,7 @@ function Header(props) {
                         <>
                             <Button text>Upload</Button>
                             <Button primary>Log in</Button>
-                            {/* <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}> Log out </Button> */}
+                            <Button primary rounded> Log out </Button>
                         </>
                     )}
                     <Menu items={userCurrent ? userMenu : MENU_ITEMS} onChange={handlerMenuChange}>
