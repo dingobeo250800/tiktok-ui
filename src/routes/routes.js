@@ -3,12 +3,12 @@ import config from '~/config';
 //layout
 import { HeaderOnly } from '~/layouts';
 //pages
-import Home from '~/components/pages/Home';
-import Following from '~/components/pages/Following';
-import Profile from '~/components/pages/Profile';
-import Search from '~/components/pages/Search';
-import Upload from '~/components/pages/Upload';
-import Live from '~/components/pages/Live';
+import Following from '~/pages/Following';
+import Home from '~/pages/Home';
+import Live from '~/pages/Live';
+import Profile from '~/pages/Profile';
+import Search from '~/pages/Search';
+import Upload from '~/pages/Upload';
 
 //public routes
 export const publicRoutes = [

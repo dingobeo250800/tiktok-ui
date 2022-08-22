@@ -6,8 +6,8 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SearchIcon } from '~/Icons';
-import { useDebounce } from '~/components/hooks';
+import { SearchIcon } from '~/components/Icons';
+import { useDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchService';
 
 const cx = classNames.bind(styles);

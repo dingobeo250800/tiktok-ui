@@ -4,7 +4,15 @@ import styles from './Sidebar.module.scss';
 import config from '~/config';
 import Menu from './Menu';
 import { MenuItem } from './Menu';
-import { HomeIcon, HomeActiveIcon, LiveIcon, LiveActiveIcon, UserGroupIcon, UserGroupActiveIcon } from '~/Icons';
+import {
+    HomeIcon,
+    HomeActiveIcon,
+    LiveIcon,
+    LiveActiveIcon,
+    UserGroupIcon,
+    UserGroupActiveIcon,
+} from '~/components/Icons';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = className.bind(styles);
 
@@ -31,6 +39,9 @@ function Sidebar(props) {
                     activeIcon={<UserGroupActiveIcon />}
                 />
             </Menu>
+
+            <SuggestedAccounts label="Suggested accounts" />
+            {/* <SuggestedAccounts label="Following accounts" /> */}
         </aside>
     );
 }

@@ -1,0 +1,58 @@
+.wrapper {
+    width: 320px;
+    padding: 20px;
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .btn-follow {
+            padding: 6px 0;
+        }
+    }
+    .body {
+        .nickname {
+            font-size: 1.8rem;
+            color: #151823;
+            font-weight: 700;
+            line-height: 22px;
+            .check {
+                margin-left: 6px;
+                font-size: 1.4rem;
+                color: #20d5ec;
+            }
+        }
+        .name {
+            font-size: 1.4rem;
+            color: #151823;
+            font-weight: 600;
+            line-height: 20px;
+        }
+        .analytics {
+            margin-top: 8px;
+            .value {
+                font-size: 1.7rem;
+                color: #151823;
+                font-weight: 700;
+                margin-right: 6px;
+                line-height: 20px;
+                display: inline-block;
+            }
+            .value ~ .value {
+                margin-left: 12px;
+            }
+            .label {
+                resize: 1.7rem;
+                color: #151823bf;
+                line-height: 20px;
+                display: inline-block;
+            }
+        }
+    }
+}

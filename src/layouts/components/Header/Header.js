@@ -20,8 +20,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon, UploadIcon } from '~/Icons';
-import Image from '~/Image';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 import Search from '../Search';
 
 const cx = classNames.bind(styles);
@@ -135,7 +135,10 @@ function Header(props) {
                         <>
                             <Button text>Upload</Button>
                             <Button primary>Log in</Button>
-                            <Button primary rounded> Log out </Button>
+                            <Button primary rounded>
+                                {' '}
+                                Log out{' '}
+                            </Button>
                         </>
                     )}
                     <Menu items={userCurrent ? userMenu : MENU_ITEMS} onChange={handlerMenuChange}>
