@@ -1,6 +1,8 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import className from 'classnames/bind';
 import styles from './Sidebar.module.scss';
+
 import config from '~/config';
 import Menu from './Menu';
 import { MenuItem } from './Menu';
@@ -12,11 +14,21 @@ import {
     UserGroupIcon,
     UserGroupActiveIcon,
 } from '~/components/Icons';
+import * as userService from '~/services/userService';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = className.bind(styles);
 
 function Sidebar(props) {
+    const [suggestUsers, setSuggestUsers] = useState([]);
+
+    useEffect(() => {
+        const getDataSuggest = async () => {
+            const data = await userService.getSuggested({ page: 1, perPage: 5 });
+            setSuggestUsers(data);
+        };
+        getDataSuggest();
+    }, []);
     return (
         <aside className={cx('wrapper')}>
             <Menu>
@@ -40,8 +52,8 @@ function Sidebar(props) {
                 />
             </Menu>
 
-            <SuggestedAccounts label="Suggested accounts" />
-            {/* <SuggestedAccounts label="Following accounts" /> */}
+            <SuggestedAccounts label="Suggested accounts" data={suggestUsers} />
+            <SuggestedAccounts label="Following accounts" />
         </aside>
     );
 }
