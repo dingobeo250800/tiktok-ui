@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -23,6 +23,7 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import Modal from '~/components/Modal';
 
 const cx = classNames.bind(styles);
 
@@ -90,7 +91,8 @@ const userMenu = [
 ];
 
 function Header(props) {
-    const userCurrent = true;
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const userCurrent = false;
 
     //Handle logic
     const handlerMenuChange = (menuItem) => {
@@ -102,6 +104,13 @@ function Header(props) {
         }
     };
 
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -133,11 +142,10 @@ function Header(props) {
                         </>
                     ) : (
                         <>
+                            <div id="publish-btn"></div>
                             <Button text>Upload</Button>
-                            <Button primary>Log in</Button>
-                            <Button primary rounded>
-                                {' '}
-                                Log out{' '}
+                            <Button primary onClick={openModal}>
+                                Log in
                             </Button>
                         </>
                     )}
@@ -155,6 +163,10 @@ function Header(props) {
                     </Menu>
                 </div>
             </div>
+            <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+                <button onClick={closeModal}>close</button>
+                <div>I am a modal</div>
+            </Modal>
         </header>
     );
 }
